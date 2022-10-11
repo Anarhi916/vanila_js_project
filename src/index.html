@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Store List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <div class="intro-mask" id="darkMasck"></div>
+    <div class="content-conteiner">
+      <aside class="stores-list">
+        <div class="loader-spin loader-spin_stores" id="loaderStores"></div>
+        <header class="stores-list__header">
+          <h2 class="stores-list__heading">Stores List</h2>
+          <div class="stores-list__search">
+            <form method="POST">
+              <div class="stores-list__input-wrapper">
+                <input
+                  type="text"
+                  placeholder="Search"
+                  class="stores-list__search-input"
+                  id="inputSearchStore"
+                />
+                <button
+                  class="stores-list__submit-button"
+                  id="buttonSearch"
+                  title="search"
+                  type="submit"
+                ></button>
+                <button
+                  type="reset"
+                  class="stores-list__refresh-button"
+                  id="buttonResetSearch"
+                  title="refresh"
+                ></button>
+              </div>
+            </form>
+          </div>
+          <button class="stores__up-button up-button" type="button"></button>
+          <button class="stores__pin-button pin-button" type="button"></button>
+        </header>
+        <section class="stores-list__stores stores">
+          <div class="stores__wrapper" id="storesWrapper"></div>
+        </section>
+      </aside>
+      <main class="store-deteils">
+        <div class="store-deteils__empty-list empty-list" id="emptyGoodsList">
+          <div class="empty-list__wrapper">
+            <div class="empty-list__icon"></div>
+            <p class="empty-list__text-up">The store is not selected</p>
+            <p class="empty-list__text-down">
+              Please select the store to proceed
+            </p>
+          </div>
+        </div>
+        <div class="store-deteils__filled-list" id="filledGoodsList">
+          <header class="store-deteils__header">
+            <h2 class="store-deteils__heading">Store Details</h2>
+            <div class="store-deteils__contacts contacts">
+              <div class="contacts__col-left">
+                <p class="contacts__field" id="contactsEmail"></p>
+                <p class="contacts__field" id="contactsPhone"></p>
+                <p class="contacts__field" id="contactsAddress"></p>
+              </div>
+              <div class="contacts__col-right">
+                <p class="contacts__field" id="contactsDate"></p>
+                <p class="contacts__field" id="contactsArea"></p>
+              </div>
+            </div>
+            <div class="store-deteils__button-wrapper">
+              <button class="up-button" type="button"></button>
+              <button class="pin-button" type="button"></button>
+            </div>
+            <div class="store-deteils__info-bar info-bar" id="infoBar">
+              <div
+                class="
+                  info-bar__item info-bar__item_1
+                  filter-active
+                  js-all-goods
+                "
+              >
+                <span class="info-bar__amount" id="infoAmount"></span
+                ><span class="info-bar__condition">All</span>
+              </div>
+              <div class="info-bar__item js-is-in-stock">
+                <div class="info-bar__col-left info-bar__item_centered">
+                  <div class="info-bar__img info-bar__img_1"></div>
+                  <div class="info-bar__status">Ok</div>
+                </div>
+                <div class="info-bar__col-right">
+                  <div
+                    class="info-bar__quantity info-bar__quantity_moved"
+                    id="infoInStock"
+                  ></div>
+                </div>
+              </div>
+              <div class="info-bar__item js-storage">
+                <div class="info-bar__col-left info-bar__item_centered">
+                  <div class="info-bar__img info-bar__img_2"></div>
+                  <div class="info-bar__status">Storage</div>
+                </div>
+                <div class="info-bar__col-right">
+                  <div class="info-bar__quantity" id="infoInStrege"></div>
+                </div>
+              </div>
+              <div class="info-bar__item js-no-in-stock">
+                <div class="info-bar__col-left info-bar__item_centered">
+                  <div class="info-bar__img info-bar__img_3"></div>
+                  <div class="info-bar__status">Out of stock</div>
+                </div>
+                <div class="info-bar__col-right">
+                  <div class="info-bar__quantity" id="outOfStock"></div>
+                </div>
+              </div>
+            </div>
+            <div class="store-deteils__search">
+              <form method="POST">
+                <div class="store-deteils__input-wrapper">
+                  <input
+                    type="text"
+                    placeholder="Search"
+                    class="store-deteils__search-input"
+                    id="inputSearchGoods"
+                  />
+                  <button
+                    class="stores-deteils__submit-button"
+                    id="buttonGoodsSearch"
+                    title="search"
+                    type="submit"
+                  ></button>
+                  <button
+                    type="reset"
+                    class="stores-deteils__refresh-button"
+                    id="buttonGoodsResetSearch"
+                    title="refresh"
+                  ></button>
+                </div>
+              </form>
+            </div>
+          </header>
+          <section class="store-deteils__goods goods">
+            <div class="loader-spin loader-spin_goods" id="loaderGoods"></div>
+            <table class="goods__table" id="goodsTable">
+              <caption class="goods__heading">
+                Products
+              </caption>
+              <col class="table__col-1" />
+              <col class="table__col-2" />
+              <col class="table__col-3" />
+              <col class="table__col-4" />
+              <col class="table__col-5" />
+              <col class="table__col-6" />
+              <col class="table__col-7" />
+              <col class="table__col-8" />
+              <col class="table__col-9" />
+              <col class="table__col-10" />
+              <thead>
+                <tr class="goods__denomination" id="tableHeading">
+                  <th class="denomination__item">
+                    <div class="denomination__wrapper">
+                      <span>Name</span
+                      ><button
+                        class="goods__button-filter goods__button-filter_name"
+                      >
+                        &#9746;
+                      </button>
+                    </div>
+                  </th>
+                  <th class="denomination__item denomination__item_right">
+                    <div class="denomination__wrapper">
+                      <span>Price</span
+                      ><button
+                        class="goods__button-filter goods__button-filter_price"
+                      >
+                        &#9746;
+                      </button>
+                    </div>
+                  </th>
+                  <th class="denomination__item">
+                    <div class="denomination__wrapper">
+                      <span>Specs</span
+                      ><button
+                        class="goods__button-filter goods__button-filter_specs"
+                      >
+                        &#9746;
+                      </button>
+                    </div>
+                  </th>
+                  <th class="denomination__item">
+                    <div class="denomination__wrapper">
+                      <span>Supplierinfo</span
+                      ><button
+                        class="
+                          goods__button-filter goods__button-filter_supplierinfo
+                        "
+                      >
+                        &#9746;
+                      </button>
+                    </div>
+                  </th>
+                  <th class="denomination__item">
+                    <div class="denomination__wrapper">
+                      <span>Country of origin</span
+                      ><button
+                        class="goods__button-filter goods__button-filter_origin"
+                      >
+                        &#9746;
+                      </button>
+                    </div>
+                  </th>
+                  <th class="denomination__item">
+                    <div class="denomination__wrapper">
+                      <span>Prod. company</span
+                      ><button
+                        class="
+                          goods__button-filter goods__button-filter_company
+                        "
+                      >
+                        &#9746;
+                      </button>
+                    </div>
+                  </th>
+                  <th class="denomination__item">
+                    <div class="denomination__wrapper">
+                      <span>Rating</span
+                      ><button
+                        class="goods__button-filter goods__button-filter_rating"
+                      >
+                        &#9746;
+                      </button>
+                    </div>
+                  </th>
+                  <th class="denomination__item"></th>
+                  <th class="denomination__item"></th>
+                  <th class="denomination__item"></th>
+                </tr>
+              </thead>
+            </table>
+          </section>
+        </div>
+        <div class="form-store" id="formStore">
+          <header class="form-store__heading">Create new store</header>
+          <div class="form__wrap">
+            <form method="POST" class="form-store__form" id="formStoreBlanck">
+              <div class="form-store__input-wrap">
+                <p class="form-store__text">
+                  <span class="form-store__text_red">*</span>Name
+                </p>
+                <input
+                  class="form-store__input form-store__input_name"
+                  id="inputStoresFormName"
+                  type="text"
+                  placeholder="Enter name..."
+                />
+                <p class="form-store__validate form-store__validate-name"></p>
+              </div>
+              <div class="form-store__input-wrap">
+                <p class="form-store__text">
+                  <span class="form-store__text_red">*</span>Email
+                </p>
+                <input
+                  class="form-store__input form-store__input_email"
+                  id="inputStoresFormEmail"
+                  type="email"
+                  placeholder="Enter email..."
+                />
+                <p class="form-store__validate form-store__validate-email"></p>
+              </div>
+              <div class="form-store__input-wrap">
+                <p class="form-store__text">
+                  <span class="form-store__text_red">*</span>Phone Number
+                </p>
+                <input
+                  class="form-store__input form-store__input_phone"
+                  id="inputStoresFormPhone"
+                  type="tel"
+                  placeholder="Enter phone number..."
+                />
+                <p class="form-store__validate form-store__validate-phone"></p>
+              </div>
+              <div class="form-store__input-wrap">
+                <p class="form-store__text">
+                  <span class="form-store__text_red">*</span>Address
+                </p>
+                <input
+                  class="form-store__input form-store__input_address"
+                  id="inputStoresFormAddress"
+                  type="text"
+                  placeholder="Enter address..."
+                />
+                <p
+                  class="form-store__validate form-store__validate-address"
+                ></p>
+              </div>
+              <div class="form-store__input-wrap">
+                <p class="form-store__text">
+                  <span class="form-store__text_red">*</span>Esteblished Date
+                </p>
+                <input
+                  class="form-store__input form-store__input_date"
+                  id="inputStoresFormDate"
+                  type="date"
+                />
+                <p class="form-store__validate form-store__validate-date"></p>
+              </div>
+              <div class="form-store__input-wrap">
+                <p class="form-store__text">
+                  <span class="form-store__text_red">*</span>Floor Area
+                </p>
+                <input
+                  class="form-store__input form-store__input_area"
+                  id="inputStoresFormArea"
+                  type="text"
+                  placeholder="Enter floor area(in sq.m)..."
+                />
+                <p class="form-store__validate form-store__validate-area"></p>
+              </div>
+            </form>
+          </div>
+          <footer class="form-store__footer">
+            <button
+              class="form-store__submit-button form__submit-button"
+              id="buttonSubmitFormStore"
+              type="submit"
+            >
+              Create
+            </button>
+            <button
+              type="button"
+              class="form-store__cancel-button form__cancel-button"
+              id="buttonCancelFormStore"
+            >
+              Cancel
+            </button>
+          </footer>
+        </div>
+        <div class="form-store form-goods" id="formGoods">
+          <header class="form-store__heading" id="headerFormGoods">
+            Create new product
+          </header>
+          <div class="form__wrap">
+            <form method="POST" class="form-goods__form" id="formGoodsBlanck">
+              <div class="form-store__input-wrap">
+                <p class="form-store__text">
+                  <span class="form-store__text_red">*</span>Name
+                </p>
+                <input
+                  class="form-store__input form-goods__input_name"
+                  id="inputGoodsFormName"
+                  type="text"
+                  placeholder="Enter name..."
+                />
+                <p class="form-store__validate form-goods__validate-name"></p>
+              </div>
+              <div class="form-store__input-wrap">
+                <p class="form-store__text">
+                  <span class="form-store__text_red">*</span>Price
+                </p>
+                <div class="form-goods__wrap-price">
+                  <input
+                    class="form-store__input form-goods__input_price"
+                    id="inputGoodsFormPrice"
+                    type="text"
+                    placeholder="Enter price..."
+                  />
+                  <span class="form-goods__price-currency">USD</span>
+                </div>
+                <p class="form-store__validate form-goods__validate-price"></p>
+              </div>
+              <div class="form-store__input-wrap">
+                <p class="form-store__text">
+                  <span class="form-store__text_red">*</span>Specs
+                </p>
+                <textarea
+                  class="form-store__input form-goods__input_specs"
+                  id="inputGoodsFormSpecs"
+                  type="text"
+                  rows="2"
+                  placeholder="Enter product specs..."
+                ></textarea>
+                <p class="form-store__validate form-goods__validate-specs"></p>
+              </div>
+              <div class="form-store__input-wrap">
+                <p class="form-store__text">
+                  <span class="form-store__text_red">*</span>Raiting
+                </p>
+                <input
+                  class="form-store__input form-goods__input_raiting"
+                  id="inputGoodsFormRating"
+                  type="text"
+                  placeholder="Enter raiting 1..5"
+                />
+                <p class="form-store__validate form-goods__validate-rating"></p>
+              </div>
+              <div class="form-store__input-wrap">
+                <p class="form-store__text">
+                  <span class="form-store__text_red">*</span>Supplier Info
+                </p>
+                <textarea
+                  class="form-store__input form-goods__input_supplier"
+                  id="inputGoodsFormSupplier"
+                  type="text"
+                  rows="2"
+                  placeholder="Enter supplierinfo..."
+                ></textarea>
+                <p
+                  class="form-store__validate form-goods__validate-supplier"
+                ></p>
+              </div>
+              <div class="form-store__input-wrap">
+                <p class="form-store__text">
+                  <span class="form-store__text_red">*</span>Made in
+                </p>
+                <input
+                  class="form-store__input form-goods__input_origin"
+                  id="inputGoodsFormOrigin"
+                  type="text"
+                  placeholder="Enter origin country"
+                />
+                <p class="form-store__validate form-goods__validate-origin"></p>
+              </div>
+              <div class="form-store__input-wrap">
+                <p class="form-store__text">
+                  <span class="form-store__text_red">*</span>Production company
+                  name
+                </p>
+                <input
+                  class="form-store__input form-goods__input_company"
+                  id="inputGoodsFormCompany"
+                  type="text"
+                  placeholder="Enter manufacturer name"
+                />
+                <p
+                  class="form-store__validate form-goods__validate-company"
+                ></p>
+              </div>
+              <div class="form-store__input-wrap">
+                <p class="form-store__text">
+                  <span class="form-store__text_red">*</span>Status
+                </p>
+                <select
+                  class="form-store__input form-goods__input_status"
+                  id="inputGoodsFormStatus"
+                >
+                  <option class="sue" disabled selected>Enter status</option>
+                  <option value="OK">OK</option>
+                  <option value="STORAGE">STORAGE</option>
+                  <option value="OUT_OF_STOCK">OUT_OF_STOCK</option>
+                </select>
+                <p class="form-store__validate form-goods__validate-status"></p>
+              </div>
+            </form>
+          </div>
+          <footer class="form-store__footer">
+            <button
+              class="form-goods__submit-button form__submit-button"
+              id="buttonSubmitFormGoods"
+              type="submit"
+              form="form-1"
+            >
+              Create
+            </button>
+            <button
+              type="button"
+              class="form-goods__cancel-button form__cancel-button"
+              id="buttonCancelFormGoods"
+            >
+              Cancel
+            </button>
+          </footer>
+        </div>
+      </main>
+      <footer class="stores-footer">
+        <div class="stores-footer__col-left">
+          <button
+            class="
+              stores-footer__create-button stores-footer__create-button_left
+            "
+            id="buttonCreateStore"
+            type="button"
+          >
+            Create
+          </button>
+        </div>
+        <div class="stores-footer__col-right" id="rightFooter">
+          <button
+            class="
+              stores-footer__create-button stores-footer__create-button_right
+            "
+            id="buttonCreateGoods"
+            type="button"
+          >
+            Create
+          </button>
+          <button
+            class="stores-footer__delete-button"
+            id="buttonDeleteStore"
+            type="button"
+          >
+            Delete
+          </button>
+        </div>
+      </footer>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
