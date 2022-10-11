@@ -1,57 +1,57 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  text-decoration: none;
-  font-family: Geometria, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: Geometria, sans-serif;
 }
 
 :focus,
 :active {
-  outline: none;
+    outline: none;
 }
 a:focus,
 a:active {
-  outline: none;
+    outline: none;
 }
 
 body {
-  height: 100%;
-  width: 100%;
-  font-size: 100%;
-  line-height: 1;
-  font-size: 14px;
-  -ms-text-size-adjust: 100%;
-  -moz-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
+    height: 100%;
+    width: 100%;
+    font-size: 100%;
+    line-height: 1;
+    font-size: 14px;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
 }
 input,
 button,
 textarea {
-  font-family: inherit;
+    font-family: inherit;
 }
 input::-ms-clear {
-  display: none;
+    display: none;
 }
 button {
-  cursor: pointer;
+    cursor: pointer;
 }
 button::-moz-focus-inner {
-  padding: 0;
-  border: 0;
+    padding: 0;
+    border: 0;
 }
 a,
 a:visited {
-  text-decoration: none;
+    text-decoration: none;
 }
 a:hover {
-  text-decoration: none;
+    text-decoration: none;
 }
 ul li {
-  list-style: none;
+    list-style: none;
 }
 img {
-  vertical-align: top;
+    vertical-align: top;
 }
 h1,
 h2,
@@ -59,793 +59,793 @@ h3,
 h4,
 h5,
 h6 {
-  font-size: inherit;
-  font-weight: 400;
+    font-size: inherit;
+    font-weight: 400;
 }
 
 .intro-mask {
-  width: 100%;
-  height: 140%;
-  position: fixed;
-  background-color: rgba(0, 0, 0, 0.8);
-  top: 0;
-  left: 0;
-  z-index: 10;
-  display: none;
+    width: 100%;
+    height: 140%;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.8);
+    top: 0;
+    left: 0;
+    z-index: 10;
+    display: none;
 }
 
 .content-conteiner {
-  display: flex;
-  width: 100%;
-  height: 100vh;
+    display: flex;
+    width: 100%;
+    height: 100vh;
 }
 .stores-list {
-  flex: 0 0 250px;
-  overflow-y: auto;
-  overflow-x: hidden;
-  border-right: 1px solid #ebebeb;
-  width: 100%;
-  position: relative;
+    flex: 0 0 270px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-right: 1px solid #ebebeb;
+    width: 100%;
+    position: relative;
 }
 .stores-list__header {
-  height: 100px;
-  width: 100%;
-  background-color: #eff4f8;
-  padding: 15px;
-  border-bottom: 2px solid #b3c7ee;
-  position: sticky;
-  top: 0;
-  z-index: 2;
+    height: 100px;
+    width: 100%;
+    background-color: #eff4f8;
+    padding: 15px;
+    border-bottom: 2px solid #b3c7ee;
+    position: sticky;
+    top: 0;
+    z-index: 2;
 }
 .stores-list__heading {
-  font-size: 16px;
-  color: #68665f;
+    font-size: 16px;
+    color: #68665f;
 }
 .stores-list__search {
-  width: 100%;
-  margin-top: 20px;
+    width: 100%;
+    margin-top: 20px;
 }
 
 .stores-list__input-wrapper {
-  position: relative;
+    position: relative;
 }
 .stores-list__search-input {
-  width: 100%;
-  height: 25px;
-  border: 1px solid #cbccce;
-  font-size: 14px;
-  text-indent: 7px;
-  padding-right: 50px;
+    width: 100%;
+    height: 25px;
+    border: 1px solid #cbccce;
+    font-size: 14px;
+    text-indent: 7px;
+    padding-right: 50px;
 }
 
 .stores-list__search-input:hover,
 .stores-list__search-input:focus {
-  border: 2px solid #779ff0;
+    border: 2px solid #779ff0;
 }
 .stores-list__submit-button {
-  width: 25px;
-  height: 25px;
-  border: none;
-  background: url("https://image.flaticon.com/icons/png/512/126/126474.png")
-    center / 50% no-repeat;
-  position: absolute;
-  left: 74%;
-  top: 0;
+    width: 25px;
+    height: 25px;
+    border: none;
+    background: url("https://image.flaticon.com/icons/png/512/126/126474.png")
+        center / 50% no-repeat;
+    position: absolute;
+    left: 74%;
+    top: 0;
 }
 .stores-list__refresh-button {
-  width: 25px;
-  height: 25px;
-  border: none;
-  background: url("https://image.flaticon.com/icons/png/512/1244/1244006.png")
-    center / 50% no-repeat;
-  position: absolute;
-  left: 86%;
-  top: 0;
+    width: 25px;
+    height: 25px;
+    border: none;
+    background: url("https://image.flaticon.com/icons/png/512/1244/1244006.png")
+        center / 50% no-repeat;
+    position: absolute;
+    left: 86%;
+    top: 0;
 }
 
 .stores-list__submit-button:hover,
 .stores-list__refresh-button:hover {
-  background-color: #808283;
+    background-color: #808283;
 }
 
 .stores-list__stores {
-  position: relative;
-  z-index: 1;
+    position: relative;
+    z-index: 1;
 }
 .stores__wrapper {
-  padding-bottom: 60px;
+    padding-bottom: 60px;
 }
 
 .stores__up-button {
-  position: absolute;
-  left: 36%;
-  bottom: -9px;
+    position: absolute;
+    left: 36%;
+    bottom: -9px;
 }
 .up-button {
-  width: 30px;
-  height: 18px;
-  border: none;
-  background: url("https://image.flaticon.com/icons/png/512/130/130904.png")
-    center / 30% no-repeat;
-  background-color: #b5d2ee;
-  border-radius: 2px;
+    width: 30px;
+    height: 18px;
+    border: none;
+    background: url("https://image.flaticon.com/icons/png/512/130/130904.png")
+        center / 30% no-repeat;
+    background-color: #b5d2ee;
+    border-radius: 2px;
 }
 .stores__pin-button {
-  position: absolute;
-  right: 36%;
-  bottom: -9px;
+    position: absolute;
+    right: 36%;
+    bottom: -9px;
 }
 .pin-button {
-  width: 30px;
-  height: 18px;
-  border: none;
-  background: url("http://s1.iconbird.com/ico/2013/6/281/w256h25613715677480001Pin.png")
-    center / 40% no-repeat;
-  background-color: #b5d2ee;
-  border-radius: 2px;
+    width: 30px;
+    height: 18px;
+    border: none;
+    background: url("http://s1.iconbird.com/ico/2013/6/281/w256h25613715677480001Pin.png")
+        center / 40% no-repeat;
+    background-color: #b5d2ee;
+    border-radius: 2px;
 }
 
 .pin-button:hover,
 .up-button:hover {
-  background-color: #8fbde7;
+    background-color: #8fbde7;
 }
 
 .stores__item {
-  display: flex;
-  overflow: hidden;
-  width: 100%;
-  border-bottom: 1px solid #ebebeb;
-  cursor: pointer;
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    border-bottom: 1px solid #ebebeb;
+    cursor: pointer;
 }
 .stores__item:hover {
-  background-color: #ebebeb;
+    background-color: #ebebeb;
 }
 
 .stores__column-left {
-  flex: 0 0 75%;
-  padding: 15px;
-  height: auto;
+    flex: 0 0 75%;
+    padding: 15px;
+    height: auto;
 }
 .stores__name {
-  color: #282727;
+    color: #282727;
 }
 .stores__adress {
-  margin-top: 10px;
-  color: #5e5a5a;
-  font-size: 12px;
-  line-height: 14px;
+    margin-top: 10px;
+    color: #5e5a5a;
+    font-size: 12px;
+    line-height: 14px;
 }
 .stores__column-right {
-  flex: 0 0 25%;
-  padding: 15px 7px;
-  height: auto;
+    flex: 0 0 25%;
+    padding: 15px 7px;
+    height: auto;
 }
 .stores__area {
-  color: #282727;
-  font-size: 20px;
-  text-align: end;
+    color: #282727;
+    font-size: 20px;
+    text-align: end;
 }
 .stores__unit {
-  color: #5e5a5a;
-  font-size: 12px;
-  text-align: end;
+    color: #5e5a5a;
+    font-size: 12px;
+    text-align: end;
 }
 
 .empty-list {
-  display: flex;
-  font-size: 24px;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
+    display: flex;
+    font-size: 24px;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
 
 .empty-list__icon {
-  margin: 0 auto;
-  height: 80px;
-  width: 80px;
-  background: url("https://image.flaticon.com/icons/png/512/658/658237.png")
-    center / cover no-repeat;
+    margin: 0 auto;
+    height: 80px;
+    width: 80px;
+    background: url("https://image.flaticon.com/icons/png/512/658/658237.png")
+        center / cover no-repeat;
 }
 
 .empty-list__text-up {
-  text-align: center;
-  margin-top: 20px;
+    text-align: center;
+    margin-top: 20px;
 }
 .empty-list__text-down {
-  font-size: 14px;
-  text-align: center;
-  margin-top: 20px;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 20px;
 }
 .store-deteils__filled-list {
-  display: none;
+    display: none;
 }
 
 .store-deteils {
-  flex: 1 1 auto;
-  overflow-y: auto;
-  overflow-x: hidden;
-  min-width: 680px;
+    flex: 1 1 auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-width: 680px;
 }
 .store-deteils__header {
-  width: 100%;
-  height: 235px;
-  background-color: #eff4f8;
-  color: #68665f;
-  position: sticky;
-  top: 0;
-  border-bottom: 2px solid #b3c7ee;
+    width: 100%;
+    height: 235px;
+    background-color: #eff4f8;
+    color: #68665f;
+    position: sticky;
+    top: 0;
+    border-bottom: 2px solid #b3c7ee;
 }
 .store-deteils__heading {
-  font-size: 16px;
-  padding: 15px 35px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+    font-size: 16px;
+    padding: 15px 35px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 .store-deteils__contacts {
-  margin-top: 10px;
-  border-bottom: 2px solid #b3c7ee;
-  padding-bottom: 10px;
+    margin-top: 10px;
+    border-bottom: 2px solid #b3c7ee;
+    padding-bottom: 10px;
 }
 .contacts {
-  display: flex;
-  width: 100%;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 .contacts__col-left {
-  margin-left: 35px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+    margin-left: 35px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 .contacts__col-right {
-  margin-left: 40px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+    margin-left: 40px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .contacts__field {
-  margin-bottom: 7px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+    margin-bottom: 7px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .store-deteils__button-wrapper {
-  position: absolute;
-  top: 120px;
-  left: 50%;
-  transform: translateX(-50%);
+    position: absolute;
+    top: 120px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .store-deteils__info-bar {
-  padding-left: 5px;
+    padding-left: 5px;
 }
 .info-bar {
-  width: 100%;
-  height: 69px;
-  display: flex;
-  align-items: center;
-  user-select: none;
+    width: 100%;
+    height: 69px;
+    display: flex;
+    align-items: center;
+    user-select: none;
 }
 .info-bar__item {
-  cursor: pointer;
-  margin-left: 5px;
-  height: 100%;
-  min-width: 80px;
-  display: flex;
-  justify-content: center;
-  position: relative;
+    cursor: pointer;
+    margin-left: 5px;
+    height: 100%;
+    min-width: 80px;
+    display: flex;
+    justify-content: center;
+    position: relative;
 }
 .info-bar__item_centered {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .info-bar__item_1 {
-  border-right: 2px solid #ebebeb;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
+    border-right: 2px solid #ebebeb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
 
 .info-bar__amount {
-  font-size: 20px;
+    font-size: 20px;
 }
 
 .info-bar__condition {
-  font-size: 10px;
-  margin-left: 5px;
+    font-size: 10px;
+    margin-left: 5px;
 }
 
 .info-bar__img {
-  width: 30px;
-  height: 30px;
-  margin-bottom: 5px;
+    width: 30px;
+    height: 30px;
+    margin-bottom: 5px;
 }
 
 .info-bar__img_1 {
-  background: url("https://image.flaticon.com/icons/png/512/1008/1008917.png")
-    center / contain no-repeat;
+    background: url("https://image.flaticon.com/icons/png/512/1008/1008917.png")
+        center / contain no-repeat;
 }
 
 .info-bar__img_2 {
-  background: url("https://image.flaticon.com/icons/png/512/1243/1243910.png")
-    center / contain no-repeat;
+    background: url("https://image.flaticon.com/icons/png/512/1243/1243910.png")
+        center / contain no-repeat;
 }
 
 .info-bar__img_3 {
-  background: url("https://image.flaticon.com/icons/png/512/1243/1243911.png")
-    center / contain no-repeat;
+    background: url("https://image.flaticon.com/icons/png/512/1243/1243911.png")
+        center / contain no-repeat;
 }
 .info-bar__quantity {
-  margin-top: 15px;
+    margin-top: 15px;
 }
 
 .info-bar__quantity_moved {
-  margin-left: 10px;
+    margin-left: 10px;
 }
 
 .filter-active:after {
-  content: "";
-  height: 2px;
-  width: 45px;
-  background-color: rgb(97, 97, 184);
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-65%);
+    content: "";
+    height: 2px;
+    width: 45px;
+    background-color: rgb(97, 97, 184);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-65%);
 }
 
 .store-deteils__search {
-  border-top: 2px solid #b3c7ee;
-  height: 35px;
-  width: 100%;
+    border-top: 2px solid #b3c7ee;
+    height: 35px;
+    width: 100%;
 }
 
 .store-deteils__input-wrapper {
-  position: relative;
-  width: 220px;
-  text-align: center;
-  margin: 0 auto;
+    position: relative;
+    width: 220px;
+    text-align: center;
+    margin: 0 auto;
 }
 
 .store-deteils__search-input {
-  width: 220px;
-  height: 25px;
-  border: 1px solid #cbccce;
-  font-size: 14px;
-  text-indent: 7px;
-  margin: 5px 0;
+    width: 220px;
+    height: 25px;
+    border: 1px solid #cbccce;
+    font-size: 14px;
+    text-indent: 7px;
+    margin: 5px 0;
 }
 
 .store-deteils__search-input:hover,
 .store-deteils__search-input:focus {
-  border: 2px solid #779ff0;
+    border: 2px solid #779ff0;
 }
 
 .stores-deteils__submit-button {
-  width: 25px;
-  height: 25px;
-  border: none;
-  background: url("https://image.flaticon.com/icons/png/512/126/126474.png")
-    center / 50% no-repeat;
-  position: absolute;
-  left: 74%;
-  top: 5px;
+    width: 25px;
+    height: 25px;
+    border: none;
+    background: url("https://image.flaticon.com/icons/png/512/126/126474.png")
+        center / 50% no-repeat;
+    position: absolute;
+    left: 74%;
+    top: 5px;
 }
 .stores-deteils__refresh-button {
-  width: 25px;
-  height: 25px;
-  border: none;
-  background: url("https://image.flaticon.com/icons/png/512/1244/1244006.png")
-    center / 50% no-repeat;
-  position: absolute;
-  left: 85%;
-  top: 5px;
+    width: 25px;
+    height: 25px;
+    border: none;
+    background: url("https://image.flaticon.com/icons/png/512/1244/1244006.png")
+        center / 50% no-repeat;
+    position: absolute;
+    left: 85%;
+    top: 5px;
 }
 
 .stores-deteils__submit-button:hover,
 .stores-deteils__refresh-button:hover {
-  background-color: #808283;
+    background-color: #808283;
 }
 
 .store-deteils__goods {
-  padding: 15px;
+    padding: 15px;
 }
 .goods {
-  color: #68665f;
-  width: 100%;
+    color: #68665f;
+    width: 100%;
 }
 
 .goods__table {
-  width: 100%;
-  border-collapse: collapse;
-  text-align: left;
-  table-layout: fixed;
-  margin-bottom: 60px;
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    table-layout: fixed;
+    margin-bottom: 60px;
 }
 
 .goods__heading {
-  font-size: 16px;
-  padding: 10px;
-  background-color: #f7f7f7;
-  border-bottom: 1px solid #e7dede;
-  caption-side: top;
-  text-align: left;
+    font-size: 16px;
+    padding: 10px;
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #e7dede;
+    caption-side: top;
+    text-align: left;
 }
 
 .goods__denomination {
-  background-color: #f7f7f7;
-  border-bottom: 1px solid #ebe5e5;
-  font-size: 12px;
-  position: sticky;
-  top: 235px;
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #ebe5e5;
+    font-size: 12px;
+    position: sticky;
+    top: 235px;
 }
 
 .goods__button-filter {
-  width: 20px;
-  height: 20px;
-  font-size: 14px;
-  font-weight: 900;
-  background: none;
-  border: none;
-  margin-left: 5px;
-  cursor: pointer;
+    width: 20px;
+    height: 20px;
+    font-size: 14px;
+    font-weight: 900;
+    background: none;
+    border: none;
+    margin-left: 5px;
+    cursor: pointer;
 }
 
 .denomination__item {
-  padding: 10px 0 10px 15px;
+    padding: 10px 0 10px 15px;
 }
 
 .table__col-1 {
-  width: 18%;
+    width: 18%;
 }
 .table__col-2 {
-  width: 8%;
+    width: 8%;
 }
 .table__col-3 {
-  width: 18%;
+    width: 18%;
 }
 .table__col-4 {
-  width: 18%;
+    width: 18%;
 }
 .table__col-5 {
-  width: 14%;
+    width: 14%;
 }
 .table__col-6 {
-  width: 13%;
+    width: 13%;
 }
 .table__col-7 {
-  width: 100px;
+    width: 100px;
 }
 .table__col-8 {
-  width: 30px;
+    width: 30px;
 }
 
 .table__col-9 {
-  width: 30px;
+    width: 30px;
 }
 
 .table__col-10 {
-  width: 15px;
+    width: 15px;
 }
 
 .text-collaps {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .denomination__item_right,
 .goods__column-price {
-  text-align: right;
+    text-align: right;
 }
 
 .goods__item {
-  font-size: 12px;
-  padding: 10px 0 10px 15px;
-  border-bottom: 1px solid #e7dede;
-  cursor: pointer;
+    font-size: 12px;
+    padding: 10px 0 10px 15px;
+    border-bottom: 1px solid #e7dede;
+    cursor: pointer;
 }
 
 .goods__column-delete {
-  font-size: 18px;
-  text-align: start;
-  padding: 0;
+    font-size: 18px;
+    text-align: start;
+    padding: 0;
 }
 
 .goods__column-edit,
 .goods__column-arrow {
-  text-align: start;
-  padding: 0;
+    text-align: start;
+    padding: 0;
 }
 
 .goods__list:hover {
-  background-color: #ebebeb;
+    background-color: #ebebeb;
 }
 
 .goods__column-name {
-  font-weight: 600;
+    font-weight: 600;
 }
 
 .goods__raiting-conteiner {
-  width: 100px;
-  height: 20px;
-  overflow: hidden;
+    width: 100px;
+    height: 20px;
+    overflow: hidden;
 }
 
 .stars-5 {
-  height: 15px;
-  overflow: hidden;
-  background: url("./rating.png") top -7px left -11px / 100% no-repeat;
+    height: 15px;
+    overflow: hidden;
+    background: url("./rating.png") top -7px left -11px / 100% no-repeat;
 }
 
 .stars-4 {
-  height: 15px;
-  overflow: hidden;
-  background: url("./rating.png") top -22px left -11px / 100% no-repeat;
+    height: 15px;
+    overflow: hidden;
+    background: url("./rating.png") top -22px left -11px / 100% no-repeat;
 }
 
 .stars-3 {
-  height: 15px;
-  overflow: hidden;
-  background: url("./rating.png") top -36px left -11px / 100% no-repeat;
+    height: 15px;
+    overflow: hidden;
+    background: url("./rating.png") top -36px left -11px / 100% no-repeat;
 }
 
 .stars-2 {
-  height: 15px;
-  overflow: hidden;
-  background: url("./rating.png") top -50px left -11px / 100% no-repeat;
+    height: 15px;
+    overflow: hidden;
+    background: url("./rating.png") top -50px left -11px / 100% no-repeat;
 }
 
 .stars-1 {
-  height: 15px;
-  overflow: hidden;
-  background: url("./rating.png") top -64px left -11px / 100% no-repeat;
+    height: 15px;
+    overflow: hidden;
+    background: url("./rating.png") top -64px left -11px / 100% no-repeat;
 }
 
 .stores-footer {
-  width: 100vw;
-  display: flex;
-  position: fixed;
-  left: 10px;
-  bottom: 10px;
-  opacity: 0.92;
-  z-index: 5;
+    width: 100vw;
+    display: flex;
+    position: fixed;
+    left: 10px;
+    bottom: 10px;
+    opacity: 0.92;
+    z-index: 5;
 }
 .stores-footer__col-left {
-  flex: 0 0 215px;
-  height: 35px;
-  border-radius: 3px;
-  background-color: #445261;
-  position: relative;
+    flex: 0 0 215px;
+    height: 35px;
+    border-radius: 3px;
+    background-color: #445261;
+    position: relative;
 }
 .stores-footer__col-right {
-  display: none;
-  margin-left: 40px;
-  margin-right: 40px;
-  flex: 1 1 auto;
-  height: 35px;
-  border-radius: 3px;
-  background-color: #445261;
-  position: relative;
+    display: none;
+    margin-left: 40px;
+    margin-right: 40px;
+    flex: 1 1 auto;
+    height: 35px;
+    border-radius: 3px;
+    background-color: #445261;
+    position: relative;
 }
 
 .stores-footer__create-button {
-  width: 65px;
-  height: 24px;
-  background: url("https://image.flaticon.com/icons/png/512/1103/1103748.png")
-    7% center / 20% no-repeat;
-  background-color: #445567;
-  border: 1px solid #fbfcfd;
-  border-radius: 2px;
-  color: #fbfcfd;
-  font-size: 12px;
-  text-align: end;
-  padding-right: 5px;
+    width: 65px;
+    height: 24px;
+    background: url("https://image.flaticon.com/icons/png/512/1103/1103748.png")
+        7% center / 20% no-repeat;
+    background-color: #445567;
+    border: 1px solid #fbfcfd;
+    border-radius: 2px;
+    color: #fbfcfd;
+    font-size: 12px;
+    text-align: end;
+    padding-right: 5px;
 }
 
 .stores-footer__create-button_left {
-  position: absolute;
-  right: 5px;
-  top: 50%;
-  transform: translateY(-50%);
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .stores-footer__create-button_right {
-  position: absolute;
-  right: 80px;
-  top: 50%;
-  transform: translateY(-50%);
+    position: absolute;
+    right: 80px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 .stores-footer__delete-button {
-  width: 65px;
-  height: 24px;
-  background: url("https://image.flaticon.com/icons/png/512/840/840539.png") 7%
-    center / 28% no-repeat;
-  background-color: #445567;
-  border: 1px solid #fa3333;
-  border-radius: 2px;
-  color: #fa3333;
-  font-size: 12px;
-  text-align: end;
-  padding-right: 5px;
-  position: absolute;
-  right: 5px;
-  top: 50%;
-  transform: translateY(-50%);
+    width: 65px;
+    height: 24px;
+    background: url("https://image.flaticon.com/icons/png/512/840/840539.png")
+        7% center / 28% no-repeat;
+    background-color: #445567;
+    border: 1px solid #fa3333;
+    border-radius: 2px;
+    color: #fa3333;
+    font-size: 12px;
+    text-align: end;
+    padding-right: 5px;
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .stores-footer__create-button:hover,
 .stores-footer__delete-button:hover {
-  background-color: #879bb4;
+    background-color: #879bb4;
 }
 
 .form-store {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translateY(-50%) translateX(-50%);
-  z-index: 10;
-  width: 350px;
-  height: auto;
-  background-color: rgb(234, 241, 241);
-  border-radius: 5px;
-  display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    z-index: 10;
+    width: 350px;
+    height: auto;
+    background-color: rgb(234, 241, 241);
+    border-radius: 5px;
+    display: none;
 }
 .form-store__heading {
-  height: 35px;
-  width: 100%;
-  text-align: center;
-  border-bottom: 1px solid #918b8b;
-  font-size: 16px;
-  line-height: 35px;
+    height: 35px;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #918b8b;
+    font-size: 16px;
+    line-height: 35px;
 }
 .form__wrap {
-  width: 100%;
-  padding: 0 15px;
+    width: 100%;
+    padding: 0 15px;
 }
 
 .form-store__text {
-  font-size: 14px;
-  padding-bottom: 3px;
+    font-size: 14px;
+    padding-bottom: 3px;
 }
 .form-store__text_red {
-  color: rgb(240, 11, 11);
-  font-size: 14px;
+    color: rgb(240, 11, 11);
+    font-size: 14px;
 }
 .form-store__input-wrap {
-  width: 100%;
-  margin-top: 5px;
+    width: 100%;
+    margin-top: 5px;
 }
 .form-store__input {
-  width: 100%;
-  height: 24px;
-  text-indent: 7px;
-  border: 1px solid rgb(95, 91, 91);
+    width: 100%;
+    height: 24px;
+    text-indent: 7px;
+    border: 1px solid rgb(95, 91, 91);
 }
 
 .form-store__footer {
-  width: 100%;
-  height: 40px;
-  background-color: #445261;
-  margin-top: 20px;
-  text-align: end;
-  padding: 8px 0;
+    width: 100%;
+    height: 40px;
+    background-color: #445261;
+    margin-top: 20px;
+    text-align: end;
+    padding: 8px 0;
 }
 
 .form__submit-button {
-  width: 65px;
-  height: 24px;
-  background-color: #6da5e0;
-  border: none;
-  border-radius: 3px;
-  color: #faf6f6;
-  font-size: 12px;
-  text-align: center;
+    width: 65px;
+    height: 24px;
+    background-color: #6da5e0;
+    border: none;
+    border-radius: 3px;
+    color: #faf6f6;
+    font-size: 12px;
+    text-align: center;
 }
 .form__cancel-button {
-  width: 65px;
-  height: 24px;
-  background-color: #445261;
-  border: none;
-  border-radius: 3px;
-  color: #faf6f6;
-  font-size: 12px;
-  text-align: center;
-  margin: 0 10px;
+    width: 65px;
+    height: 24px;
+    background-color: #445261;
+    border: none;
+    border-radius: 3px;
+    color: #faf6f6;
+    font-size: 12px;
+    text-align: center;
+    margin: 0 10px;
 }
 
 .form-store__validate {
-  color: red;
-  margin-top: 5px;
+    color: red;
+    margin-top: 5px;
 }
 .form-goods {
-  display: none;
+    display: none;
 }
 
 .form-goods__wrap-price {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .form-goods__price-currency {
-  margin-left: 7px;
+    margin-left: 7px;
 }
 
 .form-goods__input_specs,
 .form-goods__input_supplier {
-  height: 35px;
-  padding-top: 3px;
-  resize: none;
+    height: 35px;
+    padding-top: 3px;
+    resize: none;
 }
 
 @keyframes donut-spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .loader-spin {
-  display: none;
-  border: 4px solid rgba(0, 0, 0, 0.1);
-  border-left-color: #7983ff;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  animation: donut-spin 1.2s linear infinite;
-  position: absolute;
-  z-index: 5;
+    display: none;
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left-color: #7983ff;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: donut-spin 1.2s linear infinite;
+    position: absolute;
+    z-index: 5;
 }
 
 .loader-spin_stores {
-  top: 50%;
-  left: 40%;
+    top: 50%;
+    left: 40%;
 }
 
 .loader-spin_goods {
-  top: 80%;
-  left: 57%;
+    top: 80%;
+    left: 57%;
 }
 
 @media screen and (max-width: 977px) {
-  .table__col-1 {
-    width: 14%;
-  }
-  .table__col-2 {
-    width: 8%;
-  }
-  .table__col-3 {
-    width: 15%;
-  }
-  .table__col-4 {
-    width: 15%;
-  }
+    .table__col-1 {
+        width: 14%;
+    }
+    .table__col-2 {
+        width: 8%;
+    }
+    .table__col-3 {
+        width: 15%;
+    }
+    .table__col-4 {
+        width: 15%;
+    }
 }
 
 @media screen and (max-width: 927px) {
-  .stores-list {
-    display: none;
-  }
-  .stores-footer__col-left {
-    display: none;
-  }
-  .stores-footer__col-right {
-    margin-left: 6px;
-  }
+    .stores-list {
+        display: none;
+    }
+    .stores-footer__col-left {
+        display: none;
+    }
+    .stores-footer__col-right {
+        margin-left: 6px;
+    }
 }
 
 .denomination__wrapper {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
