@@ -210,19 +210,16 @@ function Model() {
     this.foundItem = (input, data, mode) => {
         let foundedItems;
         if (mode === "stores") {
-            foundedItems = data.filter((item) => {
-                if (
+            foundedItems = data.filter(
+                (item) =>
                     item.FloorArea.toString().toLowerCase().search(input) !=
                         -1 ||
                     item.Name.toString().toLowerCase().search(input) != -1 ||
                     item.Address.toString().toLowerCase().search(input) != -1
-                ) {
-                    return true;
-                }
-            });
+            );
         } else if (mode === "goods") {
-            foundedItems = data.filter((goods) => {
-                if (
+            foundedItems = data.filter(
+                (goods) =>
                     goods.Name.toString().toLowerCase().search(input) != -1 ||
                     goods.Price.toString().toLowerCase().search(input) != -1 ||
                     goods.Specs.toString().toLowerCase().search(input) != -1 ||
@@ -232,10 +229,7 @@ function Model() {
                     goods.ProductionCompanyName.toString()
                         .toLowerCase()
                         .search(input) != -1
-                ) {
-                    return true;
-                }
-            });
+            );
             actualArrayOfGoods = foundedItems;
         }
         return foundedItems;
@@ -396,12 +390,10 @@ function Model() {
      * @returns {Object} a data of current product in current store
      */
     this.getProductInfo = (id) => {
-        let product = choosenStore.filter((goods) => {
-            if (goods.id.toString().search(id) != -1) {
-                return true;
-            }
-        });
-        return product[0];
+        let product = choosenStore.find(
+            (goods) => goods.id.toString().search(id) !== -1
+        );
+        return product;
     };
 }
 
@@ -431,7 +423,6 @@ function View() {
      * @type {HTMLElement}
      */
     this.goodsDenomination = document.getElementById("tableHeading");
-
     /**
      * Contein a HTML element of button "search among stores"
      *
@@ -811,101 +802,11 @@ function View() {
      * @public
      */
     this.clearGoodsList = (forWhat) => {
-        this.goodsTable.innerHTML = `<caption class="goods__heading">
-        Products
-    </caption>
-    <col class="table__col-1" />
-    <col class="table__col-2" />
-    <col class="table__col-3" />
-    <col class="table__col-4" />
-    <col class="table__col-5" />
-    <col class="table__col-6" />
-    <col class="table__col-7" />
-    <col class="table__col-8" />
-    <col class="table__col-9" />
-    <col class="table__col-10" />
-    <thead>
-        <tr
-            class="goods__denomination"
-            id="tableHeading"
-        >
-            <th class="denomination__item">
-                <div class="denomination__wrapper">
-                    <span>Name</span
-                    ><button
-                        class="goods__button-filter goods__button-filter_name"
-                    >
-                        &#9746;
-                    </button>
-                </div>
-            </th>
-            <th
-                class="denomination__item denomination__item_right"
-            >
-                <div class="denomination__wrapper">
-                    <span>Price</span
-                    ><button
-                        class="goods__button-filter goods__button-filter_price"
-                    >
-                        &#9746;
-                    </button>
-                </div>
-            </th>
-            <th class="denomination__item">
-                <div class="denomination__wrapper">
-                    <span>Specs</span
-                    ><button
-                        class="goods__button-filter goods__button-filter_specs"
-                    >
-                        &#9746;
-                    </button>
-                </div>
-            </th>
-            <th class="denomination__item">
-                <div class="denomination__wrapper">
-                    <span>Supplierinfo</span
-                    ><button
-                        class="goods__button-filter goods__button-filter_supplierinfo"
-                    >
-                        &#9746;
-                    </button>
-                </div>
-            </th>
-            <th class="denomination__item">
-                <div class="denomination__wrapper">
-                    <span>Country of origin</span
-                    ><button
-                        class="goods__button-filter goods__button-filter_origin"
-                    >
-                        &#9746;
-                    </button>
-                </div>
-            </th>
-            <th class="denomination__item">
-                <div class="denomination__wrapper">
-                    <span>Prod. company</span
-                    ><button
-                        class="goods__button-filter goods__button-filter_company"
-                    >
-                        &#9746;
-                    </button>
-                </div>
-            </th>
-            <th class="denomination__item">
-                <div class="denomination__wrapper">
-                    <span>Rating</span
-                    ><button
-                        class="goods__button-filter goods__button-filter_rating"
-                    >
-                        &#9746;
-                    </button>
-                </div>
-            </th>
-            <th class="denomination__item"></th>
-            <th class="denomination__item"></th>
-            <th class="denomination__item"></th>
-        </tr>
-    </thead>`;
+        let goodsAmount = this.goodsTable.querySelectorAll("tr").length;
+        while (goodsAmount > 1) {
+            this.goodsTable.removeChild(this.goodsTable.lastChild);
+            goodsAmount--;
+        }
         if (forWhat === "clear background") {
             let storeItem = document.getElementsByClassName("stores__item");
             for (let i = 0; i < storeItem.length; i++) {
@@ -1696,12 +1597,9 @@ function Controller(view, model) {
      * @param {Event} e the DOM event object.
      */
     this.processSortingGoodsList = (e) => {
-        if (e.target.closest("." + view.sortButtonClassName) != null) {
+        if (e.target.closest("." + view.sortButtonClassName)) {
             let sortButton = e.target.closest("." + view.sortButtonClassName);
-            if (
-                activeSort !== null &&
-                sortButton.className.search(activeSort) === -1
-            ) {
+            if (activeSort && sortButton.className.search(activeSort) === -1) {
                 view.resetSearchButtons();
             }
             let result = model.sortGoodsList(sortButton);
@@ -1830,26 +1728,26 @@ function Controller(view, model) {
         let choosenFilter;
         let filteredGoods;
 
-        if (e.target.closest(".js-all-goods") != null) {
+        if (e.target.closest(".js-all-goods")) {
             choosenFilter = e.target.closest(".js-all-goods");
             view.changeFilterActivLine(choosenFilter);
             filteredGoods = choosenStore;
             actualArrayOfGoods = choosenStore;
             isActiveFilter = false;
             filteredGoodsForSort = null;
-        } else if (e.target.closest(".js-is-in-stock") != null) {
+        } else if (e.target.closest(".js-is-in-stock")) {
             choosenFilter = e.target.closest(".js-is-in-stock");
             view.changeFilterActivLine(choosenFilter);
             filteredGoods = model.filterGoods(choosenFilter);
             isActiveFilter = true;
             filteredGoodsForSort = filteredGoods;
-        } else if (e.target.closest(".js-storage") != null) {
+        } else if (e.target.closest(".js-storage")) {
             choosenFilter = e.target.closest(".js-storage");
             view.changeFilterActivLine(choosenFilter);
             filteredGoods = model.filterGoods(choosenFilter);
             isActiveFilter = true;
             filteredGoodsForSort = filteredGoods;
-        } else if (e.target.closest(".js-no-in-stock") != null) {
+        } else if (e.target.closest(".js-no-in-stock")) {
             choosenFilter = e.target.closest(".js-no-in-stock");
             view.changeFilterActivLine(choosenFilter);
             filteredGoods = model.filterGoods(choosenFilter);
@@ -1857,7 +1755,7 @@ function Controller(view, model) {
             filteredGoodsForSort = filteredGoods;
         }
 
-        if (switchSort !== 0) {
+        if (switchSort) {
             let sortButton = view.getActiveSortButton(activeSort);
             result = model.sortGoodsList(sortButton, filteredGoods);
             view.clearGoodsList();
@@ -1886,14 +1784,14 @@ function Controller(view, model) {
     this.createStore = (e) => {
         e.preventDefault();
         view.validateStoreForm();
-        if (isOk === false) {
+        if (!isOk) {
             return false;
         }
         data = view.getDataFromInputFormStore();
+        view.clearForm();
         model.postNewStore(data).then(() => {
             view.clearStoreList();
             this.renderStores();
-            view.clearForm();
         });
     };
 
@@ -1924,16 +1822,12 @@ function Controller(view, model) {
                 view.clearGoodsList();
                 const loaderSpin = view.getLoaderSpinGoods();
                 view.showElem(loaderSpin);
-                model
-                    .getGoodsFromServer(currentStoreId)
-                    .then(() => {
-                        view.renderGoodsList(choosenStore);
-                    })
-                    .then(() => {
-                        let loaderSpin = view.getLoaderSpinGoods();
-                        view.hideElem(loaderSpin);
-                        view.resetSearchButtons();
-                    });
+                model.getGoodsFromServer(currentStoreId).then(() => {
+                    view.renderGoodsList(choosenStore);
+                    let loaderSpin = view.getLoaderSpinGoods();
+                    view.hideElem(loaderSpin);
+                    view.resetSearchButtons();
+                });
             });
         } else {
             view.clearForm();
@@ -1941,16 +1835,12 @@ function Controller(view, model) {
                 view.clearGoodsList();
                 const loaderSpin = view.getLoaderSpinGoods();
                 view.showElem(loaderSpin);
-                model
-                    .getGoodsFromServer(currentStoreId)
-                    .then(() => {
-                        view.renderGoodsList(choosenStore);
-                    })
-                    .then(() => {
-                        let loaderSpin = view.getLoaderSpinGoods();
-                        view.hideElem(loaderSpin);
-                        view.resetSearchButtons();
-                    });
+                model.getGoodsFromServer(currentStoreId).then(() => {
+                    view.renderGoodsList(choosenStore);
+                    let loaderSpin = view.getLoaderSpinGoods();
+                    view.hideElem(loaderSpin);
+                    view.resetSearchButtons();
+                });
             });
         }
     };
@@ -1966,7 +1856,7 @@ function Controller(view, model) {
      */
     this.editGoods = (e) => {
         e.preventDefault();
-        if (e.target.closest(".goods__column-edit") != null) {
+        if (e.target.closest(".goods__column-edit")) {
             let product = e.target.closest(".goods__column-edit");
             editGoods = true;
             urlEditGoods = `http://localhost:3000/api/Stores/${currentStoreId}/rel_Products/${product.dataset.id}`;
@@ -2009,7 +1899,7 @@ function Controller(view, model) {
      */
     this.deleteGoods = (e) => {
         e.preventDefault();
-        if (e.target.closest(".goods__column-delete") != null) {
+        if (e.target.closest(".goods__column-delete")) {
             let confirmDelete = view.confirmDelete("goods");
             if (confirmDelete) {
                 let url = `http://localhost:3000/api/Stores/${currentStoreId}/rel_Products/${e.target.dataset.id}`;
@@ -2017,17 +1907,13 @@ function Controller(view, model) {
                     view.clearGoodsList();
                     const loaderSpin = view.getLoaderSpinGoods();
                     view.showElem(loaderSpin);
-                    model
-                        .getGoodsFromServer(currentStoreId)
-                        .then(() => {
-                            view.renderGoodsList(choosenStore);
-                        })
-                        .then(() => {
-                            view.clearForm();
-                            let loaderSpin = view.getLoaderSpinGoods();
-                            view.hideElem(loaderSpin);
-                            view.resetSearchButtons();
-                        });
+                    model.getGoodsFromServer(currentStoreId).then(() => {
+                        view.renderGoodsList(choosenStore);
+                        view.clearForm();
+                        let loaderSpin = view.getLoaderSpinGoods();
+                        view.hideElem(loaderSpin);
+                        view.resetSearchButtons();
+                    });
                 });
             }
         }
