@@ -105,7 +105,7 @@ function Model() {
      * @public
      */
     this.getGoodsFromServer = (id) => {
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve) => {
             let url = `http://localhost:3000/api/Stores/${id}/rel_Products`;
             this.fetchGetData(url, "getGoods").then(() => resolve());
         });
@@ -781,8 +781,6 @@ function View() {
      * @param {Object} storesArray array of stores
      * @param {String} selectionId id of selected store
      *
-     * @returns {Promise} the promise object will be resolved once the stores get rendered on page
-     *
      * @public
      */
     this.createStoresList = (storesArray, selectionId) => {
@@ -794,34 +792,14 @@ function View() {
                 storeItem.style.backgroundColor = "#ebebeb";
             }
             this.getStoreList().append(storeItem);
-
-            let storeColumnLeft = document.createElement("div");
-            storeColumnLeft.className = "stores__column-left";
-            storeItem.append(storeColumnLeft);
-
-            let storeName = document.createElement("p");
-            storeName.className = "stores__name";
-            storeName.innerHTML = item.Name;
-            storeColumnLeft.append(storeName);
-
-            let storeAdress = document.createElement("p");
-            storeAdress.className = "stores__adress";
-            storeAdress.innerHTML = item.Address;
-            storeColumnLeft.append(storeAdress);
-
-            let storeColumnRight = document.createElement("div");
-            storeColumnRight.className = "stores__column-right";
-            storeItem.append(storeColumnRight);
-
-            let storeArea = document.createElement("p");
-            storeArea.className = "stores__area";
-            storeArea.innerHTML = item.FloorArea;
-            storeColumnRight.append(storeArea);
-
-            let storeUnit = document.createElement("p");
-            storeUnit.className = "stores__unit";
-            storeUnit.innerHTML = "sq.m";
-            storeColumnRight.append(storeUnit);
+            storeItem.innerHTML = `<div class="stores__column-left">
+                <p class="stores__name">${item.Name}</p>
+                <p class="stores__adress">${item.Address}</p>
+            </div>
+            <div class="stores__column-right">
+                <p class="stores__area">${item.FloorArea}</p>
+                <p class="stores__unit">sq.m</p>
+            </div>`;
         });
     };
 
@@ -833,11 +811,101 @@ function View() {
      * @public
      */
     this.clearGoodsList = (forWhat) => {
-        let goodsAmount = this.goodsTable.querySelectorAll("tr").length;
-        while (goodsAmount > 1) {
-            this.goodsTable.removeChild(this.goodsTable.lastChild);
-            goodsAmount--;
-        }
+        this.goodsTable.innerHTML = `<caption class="goods__heading">
+        Products
+    </caption>
+    <col class="table__col-1" />
+    <col class="table__col-2" />
+    <col class="table__col-3" />
+    <col class="table__col-4" />
+    <col class="table__col-5" />
+    <col class="table__col-6" />
+    <col class="table__col-7" />
+    <col class="table__col-8" />
+    <col class="table__col-9" />
+    <col class="table__col-10" />
+    <thead>
+        <tr
+            class="goods__denomination"
+            id="tableHeading"
+        >
+            <th class="denomination__item">
+                <div class="denomination__wrapper">
+                    <span>Name</span
+                    ><button
+                        class="goods__button-filter goods__button-filter_name"
+                    >
+                        &#9746;
+                    </button>
+                </div>
+            </th>
+            <th
+                class="denomination__item denomination__item_right"
+            >
+                <div class="denomination__wrapper">
+                    <span>Price</span
+                    ><button
+                        class="goods__button-filter goods__button-filter_price"
+                    >
+                        &#9746;
+                    </button>
+                </div>
+            </th>
+            <th class="denomination__item">
+                <div class="denomination__wrapper">
+                    <span>Specs</span
+                    ><button
+                        class="goods__button-filter goods__button-filter_specs"
+                    >
+                        &#9746;
+                    </button>
+                </div>
+            </th>
+            <th class="denomination__item">
+                <div class="denomination__wrapper">
+                    <span>Supplierinfo</span
+                    ><button
+                        class="goods__button-filter goods__button-filter_supplierinfo"
+                    >
+                        &#9746;
+                    </button>
+                </div>
+            </th>
+            <th class="denomination__item">
+                <div class="denomination__wrapper">
+                    <span>Country of origin</span
+                    ><button
+                        class="goods__button-filter goods__button-filter_origin"
+                    >
+                        &#9746;
+                    </button>
+                </div>
+            </th>
+            <th class="denomination__item">
+                <div class="denomination__wrapper">
+                    <span>Prod. company</span
+                    ><button
+                        class="goods__button-filter goods__button-filter_company"
+                    >
+                        &#9746;
+                    </button>
+                </div>
+            </th>
+            <th class="denomination__item">
+                <div class="denomination__wrapper">
+                    <span>Rating</span
+                    ><button
+                        class="goods__button-filter goods__button-filter_rating"
+                    >
+                        &#9746;
+                    </button>
+                </div>
+            </th>
+            <th class="denomination__item"></th>
+            <th class="denomination__item"></th>
+            <th class="denomination__item"></th>
+        </tr>
+    </thead>`;
         if (forWhat === "clear background") {
             let storeItem = document.getElementsByClassName("stores__item");
             for (let i = 0; i < storeItem.length; i++) {
@@ -852,20 +920,13 @@ function View() {
      * Highlight last selected store item after search among stores and reseting search by id, ant set contact info
      *
      * @param {String} id id of store
-     * @param {HTMLElement} currenStore HTML element, which need to hightlight
-     *
-     * @returns {Promise} the promise object will be resolved once the store item gets highlight
+     * @param {HTMLElement} currentStore HTML element, which need to hightlight
      */
-    this.highlightElemAndSetInfo = (id, currenStore) => {
-        return new Promise((resolve, reject) => {
-            if (currenStore) {
-                currenStore.style.backgroundColor = "#ebebeb";
-                this.setContactInfo(id);
-                resolve();
-            } else {
-                resolve();
-            }
-        });
+    this.highlightElemAndSetInfo = (id, currentStore) => {
+        if (currentStore) {
+            currentStore.style.backgroundColor = "#ebebeb";
+            this.setContactInfo(id);
+        }
     };
 
     /**
@@ -874,103 +935,63 @@ function View() {
      * @param {Object} choosenStore array with goods
      * @param {String} mode string indicated of needing to set filter info
      *
-     * @returns {Promise} the promise object will be resolved once the goods list gets rendered
-     *
      * @public
      */
     this.renderGoodsList = (choosenStore, mode) => {
-        return new Promise((resolve, reject) => {
-            let outOfStock = 0;
-            let inStock = 0;
-            let inStorage = 0;
-            let goodsArray = choosenStore;
+        let outOfStock = 0;
+        let inStock = 0;
+        let inStorage = 0;
+        let goodsArray = choosenStore;
 
-            goodsArray.forEach((item) => {
-                if (item.Status === "OUT_OF_STOCK") {
-                    outOfStock++;
-                } else if (item.Status === "OK") {
-                    inStock++;
-                } else if (item.Status === "STORAGE") {
-                    inStorage++;
-                }
-
-                let goodsItem = document.createElement("tr");
-                goodsItem.className = "goods__list";
-                this.goodsTable.append(goodsItem);
-
-                let goodsColName = document.createElement("td");
-                goodsColName.className = "goods__item goods__column-name";
-                goodsColName.innerHTML = `${item.Name}`;
-                goodsItem.append(goodsColName);
-
-                let goodsColPrice = document.createElement("td");
-                goodsColPrice.className = "goods__item goods__column-price";
-                goodsColPrice.innerHTML = `<strong>${item.Price}</strong> ${currency}`;
-                goodsItem.append(goodsColPrice);
-
-                let goodsSpecs = document.createElement("td");
-                goodsSpecs.className =
-                    "goods__item goods__column-specs text-collaps";
-                goodsSpecs.innerHTML = `${item.Specs}`;
-                goodsSpecs.setAttribute("title", `${item.Specs}`);
-                goodsItem.append(goodsSpecs);
-
-                let goodsSullpierInfo = document.createElement("td");
-                goodsSullpierInfo.className =
-                    "goods__item goods__column-supplierinfo text-collaps";
-                goodsSullpierInfo.innerHTML = `${item.SupplierInfo}`;
-                goodsSullpierInfo.setAttribute("title", `${item.SupplierInfo}`);
-                goodsItem.append(goodsSullpierInfo);
-
-                let goodsOrigin = document.createElement("td");
-                goodsOrigin.className =
-                    "goods__item goods__column-origin text-collaps";
-                goodsOrigin.innerHTML = `${item.MadeIn}`;
-                goodsOrigin.setAttribute("title", `${item.MadeIn}`);
-                goodsItem.append(goodsOrigin);
-
-                let goodsCompany = document.createElement("td");
-                goodsCompany.className =
-                    "goods__item goods__column-company text-collaps";
-                goodsCompany.innerHTML = `${item.ProductionCompanyName}`;
-                goodsCompany.setAttribute(
-                    "title",
-                    `${item.ProductionCompanyName}`
-                );
-                goodsItem.append(goodsCompany);
-
-                let goodsRating = document.createElement("td");
-                goodsRating.className = `goods__item goods__column-rating`;
-                goodsItem.append(goodsRating);
-
-                let goodsConteinerRating = document.createElement("div");
-                goodsConteinerRating.className = `goods__raiting-conteiner stars-${item.Rating}`;
-                goodsRating.append(goodsConteinerRating);
-
-                let goodsDelete = document.createElement("td");
-                goodsDelete.className = "goods__item goods__column-delete";
-                goodsDelete.innerHTML = "&#8855;";
-                goodsDelete.dataset.id = item["id"];
-                goodsItem.append(goodsDelete);
-
-                let goodsEdit = document.createElement("td");
-                goodsEdit.className = "goods__item goods__column-edit";
-                goodsEdit.innerHTML = "&#9998;";
-                goodsEdit.dataset.id = item["id"];
-                goodsItem.append(goodsEdit);
-
-                let goodsArrow = document.createElement("td");
-                goodsArrow.className = "goods__item goods__column-arrow";
-                goodsArrow.innerHTML = ">";
-                goodsItem.append(goodsArrow);
-            });
-
-            if (mode !== "filter") {
-                this.setFilterInfo(inStock, inStorage, outOfStock);
+        goodsArray.forEach((item) => {
+            if (item.Status === "OUT_OF_STOCK") {
+                outOfStock++;
+            } else if (item.Status === "OK") {
+                inStock++;
+            } else if (item.Status === "STORAGE") {
+                inStorage++;
             }
 
-            resolve();
+            let goodsItem = document.createElement("tr");
+            goodsItem.className = "goods__list";
+            this.goodsTable.append(goodsItem);
+
+            goodsItem.innerHTML = `<td class="goods__item goods__column-name">${item.Name}</td>
+            <td class="goods__item goods__column-price">
+                <strong>${item.Price}</strong> ${currency}
+            </td>
+            <td title="${item.Specs}" class="goods__item goods__column-specs text-collaps">
+                ${item.Specs}
+            </td>
+            <td
+                title="${item.SupplierInfo}"
+                class="goods__item goods__column-supplierinfo text-collaps"
+            >
+                ${item.SupplierInfo}
+            </td>
+            <td
+                title="${item.MadeIn}"
+                class="goods__item goods__column-origin text-collaps"
+            >
+                ${item.MadeIn}
+            </td>
+            <td
+                title="${item.ProductionCompanyName}"
+                class="goods__item goods__column-company text-collaps"
+            >
+                ${item.ProductionCompanyName}
+            </td>
+            <td class="goods__item goods__column-rating">
+                <div class="goods__raiting-conteiner stars-${item.Rating}"></div>
+            </td>
+            <td data-id="${item["id"]}" class="goods__item goods__column-delete">&#8855;</td>
+            <td data-id="${item["id"]}" class="goods__item goods__column-edit">&#9998;</td>
+            <td class="goods__item goods__column-arrow">></td>`;
         });
+
+        if (mode !== "filter") {
+            this.setFilterInfo(inStock, inStorage, outOfStock);
+        }
     };
 
     /**
@@ -1612,8 +1633,6 @@ function Controller(view, model) {
     /**
      * Get store items from server and render it on page
      *
-     * @returns {Promise} the promise object will be resolved once the stores gets rendered on page
-     *
      * @private
      */
     this.renderStores = () => {
@@ -1638,40 +1657,35 @@ function Controller(view, model) {
         filteredGoodsForSort = null;
         isActiveFilter = false;
         let storesItem = view.storeItemClassName;
-        if (e.target.closest("." + storesItem) != null) {
-            let currenStore = e.target.closest("." + storesItem);
-            currentStoreId = currenStore.dataset.id;
+        if (e.target.closest("." + storesItem)) {
+            let currentStore = e.target.closest("." + storesItem);
+            currentStoreId = currentStore.dataset.id;
             view.clearGoodsList("clear background");
-            this.prepareGoodsList(currentStoreId, currenStore)
-                .then(() => {
-                    view.renderGoodsList(choosenStore);
-                })
-                .then(() => {
-                    let loaderSpin = view.getLoaderSpinGoods();
-                    view.hideElem(loaderSpin);
-                    view.resetSearchButtons();
-                });
+            this.prepareGoodsList(currentStoreId, currentStore).then(() => {
+                view.renderGoodsList(choosenStore);
+                let loaderSpin = view.getLoaderSpinGoods();
+                view.hideElem(loaderSpin);
+                view.resetSearchButtons();
+            });
         }
     };
     /**
      * Get list of goods from server for clicked store, highlight current store and set contact info
      * @param {String} id store id
-     * @param {HTMLElement} currenStore HTML element of current store
+     * @param {HTMLElement} currentStore HTML element of current store
      *
      * @returns {Promise} the promise object will be resolved once the goods gets loaded.
      *
      * @private
      */
-    this.prepareGoodsList = (id, currenStore) => {
-        return new Promise((resolve, reject) => {
+    this.prepareGoodsList = (id, currentStore) => {
+        return new Promise((resolve) => {
             const loaderSpin = view.getLoaderSpinGoods();
             view.showElem(loaderSpin);
-            model
-                .getGoodsFromServer(id)
-                .then(() => {
-                    view.highlightElemAndSetInfo(id, currenStore);
-                })
-                .then(() => resolve());
+            model.getGoodsFromServer(id).then(() => {
+                view.highlightElemAndSetInfo(id, currentStore);
+                resolve();
+            });
         });
     };
     /**
@@ -1685,8 +1699,8 @@ function Controller(view, model) {
         if (e.target.closest("." + view.sortButtonClassName) != null) {
             let sortButton = e.target.closest("." + view.sortButtonClassName);
             if (
-                activeSort != null &&
-                sortButton.className.search(activeSort) == -1
+                activeSort !== null &&
+                sortButton.className.search(activeSort) === -1
             ) {
                 view.resetSearchButtons();
             }

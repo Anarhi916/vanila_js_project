@@ -126,8 +126,7 @@ h6 {
     width: 25px;
     height: 25px;
     border: none;
-    background: url("https://image.flaticon.com/icons/png/512/126/126474.png")
-        center / 50% no-repeat;
+    background: url("img/search.png") center / 50% no-repeat;
     position: absolute;
     left: 74%;
     top: 0;
@@ -136,8 +135,7 @@ h6 {
     width: 25px;
     height: 25px;
     border: none;
-    background: url("https://image.flaticon.com/icons/png/512/1244/1244006.png")
-        center / 50% no-repeat;
+    background: url("img/refresh.png") center / 50% no-repeat;
     position: absolute;
     left: 86%;
     top: 0;
@@ -154,40 +152,6 @@ h6 {
 }
 .stores__wrapper {
     padding-bottom: 60px;
-}
-
-.stores__up-button {
-    position: absolute;
-    left: 36%;
-    bottom: -9px;
-}
-.up-button {
-    width: 30px;
-    height: 18px;
-    border: none;
-    background: url("https://image.flaticon.com/icons/png/512/130/130904.png")
-        center / 30% no-repeat;
-    background-color: #b5d2ee;
-    border-radius: 2px;
-}
-.stores__pin-button {
-    position: absolute;
-    right: 36%;
-    bottom: -9px;
-}
-.pin-button {
-    width: 30px;
-    height: 18px;
-    border: none;
-    background: url("http://s1.iconbird.com/ico/2013/6/281/w256h25613715677480001Pin.png")
-        center / 40% no-repeat;
-    background-color: #b5d2ee;
-    border-radius: 2px;
-}
-
-.pin-button:hover,
-.up-button:hover {
-    background-color: #8fbde7;
 }
 
 .stores__item {
@@ -243,8 +207,7 @@ h6 {
     margin: 0 auto;
     height: 80px;
     width: 80px;
-    background: url("https://image.flaticon.com/icons/png/512/658/658237.png")
-        center / cover no-repeat;
+    background: url("img/empty.png") center / cover no-repeat;
 }
 
 .empty-list__text-up {
@@ -371,18 +334,15 @@ h6 {
 }
 
 .info-bar__img_1 {
-    background: url("https://image.flaticon.com/icons/png/512/1008/1008917.png")
-        center / contain no-repeat;
+    background: url("img/available.png") center / contain no-repeat;
 }
 
 .info-bar__img_2 {
-    background: url("https://image.flaticon.com/icons/png/512/1243/1243910.png")
-        center / contain no-repeat;
+    background: url("img/ends.png") center / contain no-repeat;
 }
 
 .info-bar__img_3 {
-    background: url("https://image.flaticon.com/icons/png/512/1243/1243911.png")
-        center / contain no-repeat;
+    background: url("img/out-of-stock.png") center / contain no-repeat;
 }
 .info-bar__quantity {
     margin-top: 15px;
@@ -434,8 +394,7 @@ h6 {
     width: 25px;
     height: 25px;
     border: none;
-    background: url("https://image.flaticon.com/icons/png/512/126/126474.png")
-        center / 50% no-repeat;
+    background: url("img/search.png") center / 50% no-repeat;
     position: absolute;
     left: 74%;
     top: 5px;
@@ -444,8 +403,7 @@ h6 {
     width: 25px;
     height: 25px;
     border: none;
-    background: url("https://image.flaticon.com/icons/png/512/1244/1244006.png")
-        center / 50% no-repeat;
+    background: url("img/refresh.png") center / 50% no-repeat;
     position: absolute;
     left: 85%;
     top: 5px;
@@ -584,31 +542,31 @@ h6 {
 .stars-5 {
     height: 15px;
     overflow: hidden;
-    background: url("./rating.png") top -7px left -11px / 100% no-repeat;
+    background: url("img/rating.png") top -7px left -11px / 100% no-repeat;
 }
 
 .stars-4 {
     height: 15px;
     overflow: hidden;
-    background: url("./rating.png") top -22px left -11px / 100% no-repeat;
+    background: url("img/rating.png") top -22px left -11px / 100% no-repeat;
 }
 
 .stars-3 {
     height: 15px;
     overflow: hidden;
-    background: url("./rating.png") top -36px left -11px / 100% no-repeat;
+    background: url("img/rating.png") top -36px left -11px / 100% no-repeat;
 }
 
 .stars-2 {
     height: 15px;
     overflow: hidden;
-    background: url("./rating.png") top -50px left -11px / 100% no-repeat;
+    background: url("img/rating.png") top -50px left -11px / 100% no-repeat;
 }
 
 .stars-1 {
     height: 15px;
     overflow: hidden;
-    background: url("./rating.png") top -64px left -11px / 100% no-repeat;
+    background: url("img/rating.png") top -64px left -11px / 100% no-repeat;
 }
 
 .stores-footer {
@@ -641,8 +599,7 @@ h6 {
 .stores-footer__create-button {
     width: 65px;
     height: 24px;
-    background: url("https://image.flaticon.com/icons/png/512/1103/1103748.png")
-        7% center / 20% no-repeat;
+    background: url("img/create.png") 7% center / 20% no-repeat;
     background-color: #445567;
     border: 1px solid #fbfcfd;
     border-radius: 2px;
@@ -668,8 +625,7 @@ h6 {
 .stores-footer__delete-button {
     width: 65px;
     height: 24px;
-    background: url("https://image.flaticon.com/icons/png/512/840/840539.png")
-        7% center / 28% no-repeat;
+    background: url("img/delete.png") 7% center / 20% no-repeat;
     background-color: #445567;
     border: 1px solid #fa3333;
     border-radius: 2px;
